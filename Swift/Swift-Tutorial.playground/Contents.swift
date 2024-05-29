@@ -157,20 +157,68 @@ class Main {
     
     //* The fourth function signature takes an additional boolean parameter (variation) which indicates whether to display the input on the second line after the prompt. This is the requested variation of the first function. By including this parameter, the function can behave differently based on whether variation is true or false.
     
-//    c) Write the following function and convert it to a closure
-//    i) Write a function to calculate the sum of a range between two values
-//    calculateSum(start : 1, to : 100)
-//    ii) Convert this function to a closure
+    //    c) Write the following function and convert it to a closure
+    //    i) Write a function to calculate the sum of a range between two values
+    //    calculateSum(start : 1, to : 100)
     
     func calculateSUM(_ start:Int,_ to:Int)->Int{
         var total:Int = start
         for number in start...to {
-                total += number
-            }
+            total += number
+        }
         return total
     }
     
+    //    ii) Convert this function to a closure
+    
+    let calculateSUMClosure: (_ start: Int, _ to: Int) -> Int = { (start: Int, to: Int) -> Int in
+        var total: Int = start
+        for number in start...to {
+            total += number
+        }
+        return total
+    }
+    
+//    d) Use the filter function to get the list of students whose attendance is greater than 90%
+//    and store it in the variable highAttendanceStudents
+//    struct Student {
+//    var name: String
+//    var attendance: Double
+//    }
+//    let students = [
+//    Student(name: "Alice", attendance: 0.85),
+//    Student(name: "Bob", attendance: 0.93),
+//    Student(name: "Charlie", attendance: 0.78),
+//    Student(name: "David", attendance: 0.91),
+//    Student(name: "Eve", attendance: 0.95)
+//    ]
+//    let highAttendanceStudents = ??
+//    print(highAttendanceStudents)
+    
+        struct Student {
+        var name: String
+        var attendance: Double
+        }
+        let students = [
+        Student(name: "Alice", attendance: 0.85),
+        Student(name: "Bob", attendance: 0.93),
+        Student(name: "Charlie", attendance: 0.78),
+        Student(name: "David", attendance: 0.91),
+        Student(name: "Eve", attendance: 0.95)
+        ]
+  
+//    e) Use the map function to create an array called calculated which will contain the
+//    values of the numbers array multiplied by 10
+    let numbers = [1, 2, 3, 4, 5]
+
+    
 }
+let mainforcalculateinstanceclosure = Main()
+let calculated = mainforcalculateinstanceclosure.numbers.map{$0 * 10}
+print("calculated\(calculated)")
+let highAttendanceStudents = mainforcalculateinstanceclosure.students.filter{$0.attendance >= 0.9}
+print(highAttendanceStudents)
+print("calculateSum Total Clousre \(mainforcalculateinstanceclosure.calculateSUMClosure(1,23))")
 let mainforcalculateinstance = Main()
 print("calculateSum Total \(mainforcalculateinstance.calculateSUM(1,23))")
 //Convert the following Struct to a Class.
