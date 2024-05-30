@@ -171,14 +171,20 @@ class Main {
     
     //    ii) Convert this function to a closure
     
-    let calculateSUMClosure: (_ start: Int, _ to: Int) -> Int = { (start: Int, to: Int) -> Int in
-        var total: Int = start
-        for number in start...to {
-            total += number
-        }
-        return total
-    }
-    
+//    let calculateSUMClosure: (_ start: Int, _ to: Int) -> Int = { (start: Int, to: Int) -> Int in
+//        var total: Int = start
+//        for number in start...to {
+//            total += number
+//        }
+//        return total
+//    }
+    let calculateSUMClosure: (Int,Int) -> Int = { start, to  in
+         var total: Int = start
+         for number in start...to {
+             total += number
+         }
+         return total
+     }
 //    d) Use the filter function to get the list of students whose attendance is greater than 90%
 //    and store it in the variable highAttendanceStudents
 //    struct Student {
@@ -218,7 +224,7 @@ let calculated = mainforcalculateinstanceclosure.numbers.map{$0 * 10}
 print("calculated\(calculated)")
 let highAttendanceStudents = mainforcalculateinstanceclosure.students.filter{$0.attendance >= 0.9}
 print(highAttendanceStudents)
-print("calculateSum Total Clousre \(mainforcalculateinstanceclosure.calculateSUMClosure(1,23))")
+print("calculateSum Total Clousre 2 \(mainforcalculateinstanceclosure.calculateSUMClosure(1,23))")
 let mainforcalculateinstance = Main()
 print("calculateSum Total \(mainforcalculateinstance.calculateSUM(1,23))")
 //Convert the following Struct to a Class.
@@ -243,7 +249,7 @@ class Item {
         print("struct converted to class\(self.description + "sdsd")")
     }
 }
-
+let schoolName: Set<String> = ["qwewq","edqd"]
 //b) Create the following objects for the class that you have written in Part (a)
 
 struct ItemStruct {
@@ -302,4 +308,101 @@ let codeno:Int = 1
 let description2:String = "asdasd"
 let Iteminstance = Item(code: codeno,description: description2)
 Iteminstance.addDescription()
+
+class Child {
+    var name:String
+    var age: Int
+    var mother: String?
+    var father: String?
+    
+    init(name: String, age: Int,father: String?) {
+        self.name = name
+        self.age = age
+        self.father = father
+    }
+    
+    init(name: String, age: Int,mother: String?) {
+        self.name = name
+        self.age = age
+        self.mother = mother
+    }
+}
+let child1 = Child(name: "Emily", age: 10, mother: "Sarah")
+print("child1 \(child1.mother)")
+let child2 = Child(name: "Jack", age: 8, father: "Mike")
+print("child2\(child2.father)")
+print("child1e\(child1.age)")
+
+enum Status: String {
+    case preprocessing = "preprocessing"
+    case shipping = "shipping"
+    case delivered = "delivered"
+}
+
+let state = "preprocessing"
+
+switch Status(rawValue: state) {
+case .preprocessing:
+    print("preprocessing")
+case .shipping:
+    print("shipping")
+case .delivered:
+    print("delivered")
+case .none:
+    print("Invalid state")
+}
+
+enum stated {
+    case preprocessingw
+    case shippingw
+    case deliveredw
+}
+
+let stateses = stated.deliveredw
+
+switch(stateses){
+case .preprocessingw:
+    print("preprocessinge")
+case .shippingw:
+    print("shippinge")
+case .deliveredw:
+    print("deliverede")
+}
+enum Animals {
+//    below code has same meaning
+//    case cat
+//    case dog
+//    case rabbit
+    case cat, dog, rabbit, hedgehog
+}
+
+
+struct Person {
+    private var _age: Int = 0
+
+    var age: Int {
+        get {
+            return _age
+        }
+        set {
+            if newValue >= 0 && newValue <= 100 {
+                willSet {
+                    print("About to set age to \(newValue)")
+                }
+                _age = newValue
+                didSet {
+                    print("Age has been set to \(_age)")
+                }
+            } else {
+                print("Invalid age value: \(newValue). Age must be between 0 and 100.")
+            }
+        }
+    }
+}
+
+// Example usage
+var person = Person()
+person.age = 25   // Valid
+person.age = 105  // Invalid
+person.age = -10  // Invalid
 
